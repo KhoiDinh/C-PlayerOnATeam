@@ -1,0 +1,48 @@
+// Inputs: ideal_team_number, real_team_number
+//Outputs: extra, more
+// Determines if the number of players is right for
+//a game and gives outputs if over or under team members
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+// creates varaibles
+int ideal_team_number, real_team_number, extra, more;
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	// inputs the data
+	std ::cout << "How many players are allowed on the team?: ";
+	std::cin >> ideal_team_number;
+
+	std::cout << "How many players want to be on the team?: ";
+	std::cin >> real_team_number;
+	if (std::cin.fail())
+	{
+		cout <<endl<< "invalid answer. Close program and try again\n";
+		return 0;
+	}
+	
+	// if/else statement to determine which message to output
+	if (ideal_team_number == real_team_number)
+	{
+		cout << "You have enough players" << endl;
+	}
+	else if (ideal_team_number > real_team_number)
+	{
+		cout << "There are not enough players." << endl;
+		more = ideal_team_number - real_team_number;
+		cout << more << " more players needed." << endl;
+	}
+	else 
+	{
+		cout << "There are too many players" << endl;
+		extra = real_team_number - ideal_team_number;
+		cout << extra << " players need to be eliminated" << endl;
+	}
+	
+	return 0;
+}
+
+
